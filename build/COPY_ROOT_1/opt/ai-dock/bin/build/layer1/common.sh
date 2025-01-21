@@ -17,7 +17,7 @@ build_common_install_api() {
 build_common_install_comfyui() {
     # Set to latest release if not provided
     if [[ -z $COMFYUI_BUILD_REF ]]; then
-        export COMFYUI_BUILD_REF="main"
+        export COMFYUI_BUILD_REF="master"
         env-store COMFYUI_BUILD_REF
     fi
 
