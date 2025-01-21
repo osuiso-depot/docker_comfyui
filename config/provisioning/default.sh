@@ -21,13 +21,18 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/talesofai/comfyui-browser"
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v12.safetensors"
+    # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+    # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
 UNET_MODELS=(
@@ -39,35 +44,31 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
-    "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
-    "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
 )
 
 ESRGAN_MODELS=(
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
-    "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
-    "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
+    "https://huggingface.co/rimOPS/upscaler/resolve/main/RealESRGAN_x4plus_anime_6B.pth"
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
+    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
+    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
+    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
+    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
+    # "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
+    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
+    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
+    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
@@ -75,8 +76,72 @@ CONTROLNET_MODELS=(
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
+function base_config(){
+    cd "${WORKSPACE}/ComfyUI/"
+    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/config.json"
+    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/ui-config.json"
+    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles.csv"
+    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles_integrated.csv"
+}
+
+function extensions_config() {
+    # まず、$WORKSPACE 内に tmp フォルダを作成
+    mkdir -p "${WORKSPACE}/tmp"
+    if [ $? -ne 0 ]; then
+        echo "Failed to create tmp directory"
+    fi
+
+    # tmp フォルダに移動
+    cd "${WORKSPACE}/tmp"
+    if [ $? -ne 0 ]; then
+        echo "Failed to change directory to tmp"
+    fi
+
+    # リポジトリをクローン
+    git clone "https://${GITHUB_TOKEN}@github.com/osuiso-depot/MySDWEBUI_config_private.git"
+    if [ $? -ne 0 ]; then
+        echo "Failed to clone repository"
+    fi
+
+    # クローンしたリポジトリがある場所に移動
+    cd "${WORKSPACE}/tmp/MySDWEBUI_config_private"
+    if [ $? -ne 0 ]; then
+        echo "Failed to change directory to cloned repository"
+    fi
+
+    # wildcards フォルダを目的のディレクトリにコピー
+    target_dir="${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/wildcards"
+
+    if [ -d "$target_dir" ]; then
+        rm -rf "$target_dir"
+        if [ $? -ne 0 ]; then
+            echo "Failed to remove existing wildcards directory"
+            exit 1
+        fi
+    fi
+
+    cp -r "wildcards" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/"
+    if [ $? -ne 0 ]; then
+        echo "Failed to copy wildcards directory"
+        exit 1
+    else
+        echo "Successfully copied wildcards directory"
+    fi
+
+
+    # Lora-block-weight プリセットを目的のディレクトリにコピーし、ファイル名を変更
+    cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.custom.txt"
+    if [ $? -ne 0 ]; then
+        echo "Failed to copy and rename lbwpresets.txt"
+    else
+        echo "Successfully copied and renamed lbwpresets.txt to lbw-preset.custom.txt"
+    fi
+
+
+}
+
 function provisioning_start() {
-    if [[ ! -d /opt/environments/python ]]; then 
+    if [[ ! -d /opt/environments/python ]]; then
         export MAMBA_BASE=true
     fi
     source /opt/ai-dock/etc/environment.sh
@@ -86,6 +151,7 @@ function provisioning_start() {
     provisioning_get_apt_packages
     provisioning_get_nodes
     provisioning_get_pip_packages
+    base_config
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/ckpt" \
         "${CHECKPOINT_MODELS[@]}"
@@ -104,6 +170,9 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
+
+    extensions_config
+
     provisioning_print_end
 }
 
@@ -161,7 +230,7 @@ function provisioning_get_default_workflow() {
 
 function provisioning_get_models() {
     if [[ -z $2 ]]; then return 1; fi
-    
+
     dir="$1"
     mkdir -p "$dir"
     shift
@@ -219,17 +288,27 @@ function provisioning_has_valid_civitai_token() {
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-    if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
+    # 認証トークンを選択
+    if [[ $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
-    elif 
-        [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
+        if [[ -n $auth_token ]]; then
+            echo "Downloading with token..."
+            wget --header="Authorization: Bearer $auth_token" --content-disposition --show-progress -q -P "$2" "$1"
+        else
+            echo "Downloading without token..."
+            wget --content-disposition --show-progress -q -P "$2" "$1"
+        fi
+    elif [[ $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|/api/download/models/|$|\?) ]]; then
         auth_token="$CIVITAI_TOKEN"
+        if [[ -n $auth_token ]]; then
+            echo "Downloading with token..."
+            wget "$1?token=$auth_token" --content-disposition --show-progress -q -P "$2"
+        else
+            echo "Downloading without token..."
+            wget "$1" --content-disposition --show-progress -q -P "$2"
+        fi
     fi
-    if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
-    else
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
-    fi
+
 }
 
 provisioning_start
