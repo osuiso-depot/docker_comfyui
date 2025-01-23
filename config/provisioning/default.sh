@@ -83,6 +83,17 @@ function base_config(){
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles.csv"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles_integrated.csv"
 }
+function set_workflow(){
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SDXL_workflow.json"
+    target_dir="${WORKSPACE}/ComfyUI/my_workflows"
+    mkdir -p "$target_dir"
+    wget -q -O "${target_dir}/workflow.json" "$workflow_url"
+    if [ $? -ne 0 ]; then
+        echo "Failed to download workflow"
+    else
+        echo "Successfully downloaded workflow to ${target_dir}/workflow.json"
+    fi
+}
 
 function extensions_config() {
     # まず、$WORKSPACE 内に tmp フォルダを作成
@@ -172,6 +183,7 @@ function provisioning_start() {
         "${ESRGAN_MODELS[@]}"
 
     extensions_config
+    set_workflow
 
     provisioning_print_end
 }
