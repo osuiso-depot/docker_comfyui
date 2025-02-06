@@ -20,13 +20,18 @@ PIP_PACKAGES=(
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
-    "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/talesofai/comfyui-browser"
+    "https://github.com/bradsec/ComfyUI_ResolutionSelector"
+    "https://github.com/jags111/efficiency-nodes-comfyui"
+    "https://github.com/yolain/ComfyUI-Easy-Use"
+    "https://github.com/chrisgoringe/cg-use-everywhere"
 )
 
 CHECKPOINT_MODELS=(
@@ -80,7 +85,7 @@ function base_config(){
     cd "${WORKSPACE}/ComfyUI/"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/config.json"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/ui-config.json"
-    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles.csv"
+    wget -q "https://raw.githubusercontent.com/osuiso-depot/docker-stable-diffusion-webui-forge/refs/heads/main/config/provisioning/styles.csv"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles_integrated.csv"
 }
 function set_workflow(){
@@ -120,35 +125,47 @@ function extensions_config() {
         echo "Failed to change directory to cloned repository"
     fi
 
-    # wildcards フォルダを目的のディレクトリにコピー
-    target_dir="${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/wildcards"
+    # custom_wildcards フォルダを目的のディレクトリにコピー
+    target_dir="${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards"
 
     if [ -d "$target_dir" ]; then
         rm -rf "$target_dir"
         if [ $? -ne 0 ]; then
-            echo "Failed to remove existing wildcards directory"
-            exit 1
+            echo "Failed to remove existing custom_wildcards directory"
         fi
     fi
 
-    cp -r "wildcards" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/"
+    # wildcards フォルダをcustom_wildcardsとしてコピーする
+    cp -r "wildcards" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards"
     if [ $? -ne 0 ]; then
         echo "Failed to copy wildcards directory"
-        exit 1
     else
         echo "Successfully copied wildcards directory"
     fi
 
 
-    # Lora-block-weight プリセットを目的のディレクトリにコピーし、ファイル名を変更
-    cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.custom.txt"
+    # Lora-block-weight プリセットを目的のディレクトリにコピーし、上書きする
+    # cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.custom.txt"
+    cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.txt"
     if [ $? -ne 0 ]; then
         echo "Failed to copy and rename lbwpresets.txt"
     else
         echo "Successfully copied and renamed lbwpresets.txt to lbw-preset.custom.txt"
     fi
 
+    CONFIG_FILE="${WORKSPACE}/ComfyUI/custom_nodes/was-node-suite-comfyui/was_suite_config.json"
 
+    # Check if jq is installed
+    if ! command -v jq &> /dev/null; then
+        echo "jq is not installed. Please install jq and try again."
+    else
+        # Modify the JSON file
+        jq '.webui_styles = "${WORKSPACE}/ComfyUI/styles.csv" | .wildcards_path = "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards"' $CONFIG_FILE > tmp.$$.json && mv tmp.$$.json $CONFIG_FILE
+
+        echo "Configuration file has been updated successfully."
+    fi
+
+    cd "${WORKSPACE}/ComfyUI/"
 }
 
 function provisioning_start() {
