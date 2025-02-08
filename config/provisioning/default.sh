@@ -11,6 +11,7 @@
 APT_PACKAGES=(
     #"package-1"
     #"package-2"
+    "jq"
 )
 
 PIP_PACKAGES=(
@@ -32,6 +33,7 @@ NODES=(
     "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/yolain/ComfyUI-Easy-Use"
     "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/osuiso-depot/comfyui-keshigom_custom"
 )
 
 CHECKPOINT_MODELS=(
@@ -45,7 +47,14 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    #"https://civitai.com/api/download/models/16576"
+    ## hachimiya-meguru
+    "https://civitai.com/api/download/models/1065346"
+    # Areola size slider(goofy)
+    "https://civitai.com/api/download/models/1284363"
+    # Glossy Skin
+    "https://civitai.com/api/download/models/1218639"
+    # cartoony-anime
+    "https://civitai.com/models/627178/cartoony-anime-style"
 )
 
 VAE_MODELS=(
@@ -90,7 +99,7 @@ function base_config(){
 }
 function set_workflow(){
     workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SDXL_workflow.json"
-    target_dir="${WORKSPACE}/ComfyUI/my_workflows"
+    target_dir="${WORKSPACE}/ComfyUI/user/default//workflows"
     mkdir -p "$target_dir"
     wget -q -O "${target_dir}/workflow.json" "$workflow_url"
     if [ $? -ne 0 ]; then
@@ -153,6 +162,7 @@ function extensions_config() {
         echo "Successfully copied and renamed lbwpresets.txt to lbw-preset.custom.txt"
     fi
 
+    # WAS-NODE config.jsonを更新、指定の項目を上書きする
     CONFIG_FILE="${WORKSPACE}/ComfyUI/custom_nodes/was-node-suite-comfyui/was_suite_config.json"
 
     # Check if jq is installed
