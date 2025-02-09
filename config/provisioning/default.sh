@@ -22,17 +22,18 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    "https://github.com/cubiq/ComfyUI_essentials"
+    # "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    "https://github.com/BlenderNeko/ComfyUI_ADV_CLIP_emb"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/talesofai/comfyui-browser"
-    "https://github.com/bradsec/ComfyUI_ResolutionSelector"
+    # "https://github.com/bradsec/ComfyUI_ResolutionSelector"
     "https://github.com/jags111/efficiency-nodes-comfyui"
-    "https://github.com/yolain/ComfyUI-Easy-Use"
-    "https://github.com/chrisgoringe/cg-use-everywhere"
+    # "https://github.com/yolain/ComfyUI-Easy-Use"
+    # "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/osuiso-depot/comfyui-keshigom_custom"
 )
 
