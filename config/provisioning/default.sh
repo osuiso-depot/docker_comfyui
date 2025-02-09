@@ -166,15 +166,29 @@ function extensions_config() {
     # WAS-NODE config.jsonを更新、指定の項目を上書きする
     CONFIG_FILE="${WORKSPACE}/ComfyUI/custom_nodes/was-node-suite-comfyui/was_suite_config.json"
 
-    # Check if jq is installed
+    # jqがインストールされているか確認
     if ! command -v jq &> /dev/null; then
-        echo "jq is not installed. Please install jq and try again."
-    else
-        # Modify the JSON file
-        jq '.webui_styles = "${WORKSPACE}/ComfyUI/styles.csv" | .wildcards_path = "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards"' $CONFIG_FILE > tmp.$$.json && mv tmp.$$.json $CONFIG_FILE
-
-        echo "Configuration file has been updated successfully."
+        echo "Error: jq is not installed. Please install jq and try again."
     fi
+
+    # 設定ファイルが存在するか確認
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo "Error: Configuration file '$CONFIG_FILE' not found."
+    fi
+
+    # JSONファイルの書き換え
+    jq --arg ws "$WORKSPACE" '
+        .webui_styles = ($ws + "/ComfyUI/styles.csv") |
+        .wildcards_path = ($ws + "/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards")
+    ' "$CONFIG_FILE" > "tmp.$$" && mv "tmp.$$" "$CONFIG_FILE"
+
+    # jqの処理結果を確認
+    if [ $? -eq 0 ]; then
+        echo "Configuration file has been updated successfully."
+    else
+        echo "Error: Failed to update the configuration file."
+    fi
+
 
     cd "${WORKSPACE}/ComfyUI/"
 }
