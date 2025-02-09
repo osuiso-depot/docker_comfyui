@@ -55,7 +55,7 @@ LORA_MODELS=(
     # Glossy Skin
     "https://civitai.com/api/download/models/1218639"
     # cartoony-anime
-    "https://civitai.com/models/627178/cartoony-anime-style"
+    "https://civitai.com/api/download/models/1118776"
 )
 
 VAE_MODELS=(
