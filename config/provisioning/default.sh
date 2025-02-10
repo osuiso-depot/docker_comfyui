@@ -34,11 +34,13 @@ NODES=(
     "https://github.com/jags111/efficiency-nodes-comfyui"
     # "https://github.com/yolain/ComfyUI-Easy-Use"
     # "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/osuiso-depot/comfyui-keshigom_custom"
 )
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v12.safetensors"
+    "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v17.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
@@ -48,6 +50,8 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
+    # Roxanne
+    "https://civitai.com/api/download/models/1055954"
     ## hachimiya-meguru
     "https://civitai.com/api/download/models/1065346"
     # Areola size slider(goofy)
@@ -56,6 +60,8 @@ LORA_MODELS=(
     "https://civitai.com/api/download/models/1218639"
     # cartoony-anime
     "https://civitai.com/api/download/models/1118776"
+    # 逆バニー
+    "https://civitai.com/api/download/models/995354"
 )
 
 VAE_MODELS=(
@@ -67,6 +73,7 @@ ESRGAN_MODELS=(
 )
 
 CONTROLNET_MODELS=(
+    "https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
