@@ -30,10 +30,7 @@ NODES=(
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/talesofai/comfyui-browser"
-    # "https://github.com/bradsec/ComfyUI_ResolutionSelector"
     "https://github.com/jags111/efficiency-nodes-comfyui"
-    # "https://github.com/yolain/ComfyUI-Easy-Use"
-    # "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/osuiso-depot/comfyui-keshigom_custom"
 )
@@ -43,6 +40,8 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v17.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    # Silene | Illustrious XL 1.0
+    # "https://civitai.com/api/download/models/1415266"
 )
 
 UNET_MODELS=(
@@ -68,12 +67,12 @@ VAE_MODELS=(
 )
 
 ESRGAN_MODELS=(
-    "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
     "https://huggingface.co/rimOPS/upscaler/resolve/main/RealESRGAN_x4plus_anime_6B.pth"
+    "https://huggingface.co/rimOPS/upscaler/resolve/main/4x_NMKD-YandereNeoXL_200k.pth"
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors"
+    # "https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
