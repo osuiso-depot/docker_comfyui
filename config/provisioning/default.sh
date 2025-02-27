@@ -61,6 +61,9 @@ LORA_MODELS=(
     "https://civitai.com/api/download/models/1118776"
     # 逆バニー
     "https://civitai.com/api/download/models/995354"
+    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_v1.safetensors"
+    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_vxp_v1.safetensors"
+    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_ai_v1.safetensors"
 )
 
 VAE_MODELS=(
