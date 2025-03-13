@@ -109,13 +109,13 @@ function set_workflow(){
 
 function extensions_config() {
     # まず、$WORKSPACE 内に tmp フォルダを作成
-    mkdir -p "${WORKSPACE}/tmp"
+    mkdir -p "${WORKSPACE}tmp"
     if [ $? -ne 0 ]; then
         echo "Failed to create tmp directory"
     fi
 
     # tmp フォルダに移動
-    cd "${WORKSPACE}/tmp"
+    cd "${WORKSPACE}tmp"
     if [ $? -ne 0 ]; then
         echo "Failed to change directory to tmp"
     fi
@@ -161,7 +161,7 @@ function extensions_config() {
     fi
 
     # WAS-NODE config.jsonを更新、指定の項目を上書きする
-    CONFIG_FILE="${WORKSPACE}/ComfyUI/custom_nodes/was-node-suite-comfyui/was_suite_config.json"
+    CONFIG_FILE="${WORKSPACE}ComfyUI/custom_nodes/was-node-suite-comfyui/was_suite_config.json"
 
     # jqがインストールされているか確認
     if ! command -v jq &> /dev/null; then
@@ -174,20 +174,19 @@ function extensions_config() {
     fi
 
     # JSONファイルの書き換え
-    jq --arg ws "$WORKSPACE" '
-        .webui_styles = ($ws + "/ComfyUI/styles.csv") |
-        .wildcards_path = ($ws + "/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards")
-    ' "$CONFIG_FILE" > "tmp.$$" && mv "tmp.$$" "$CONFIG_FILE"
-
-    # jqの処理結果を確認
-    if [ $? -eq 0 ]; then
+    TMP_FILE=$(mktemp)
+    if jq --arg ws "$WORKSPACE" \
+        '.webui_styles = ($ws + "/ComfyUI/styles.csv") |
+        .wildcards_path = ($ws + "/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards")' \
+        "$CONFIG_FILE" > "$TMP_FILE"; then
+        mv "$TMP_FILE" "$CONFIG_FILE"
         echo "Configuration file has been updated successfully."
     else
         echo "Error: Failed to update the configuration file."
+        rm -f "$TMP_FILE"
     fi
 
-
-    cd "${WORKSPACE}/ComfyUI/"
+    cd "${WORKSPACE}ComfyUI/"
 }
 
 function download_model_animediff() {
@@ -204,27 +203,28 @@ function download_model_animediff() {
 
 function model_animediff() {
     # animatediffモデルダウンロード
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/animatediff_models/mm_sd_v15.ckpt" \
-        "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt"
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/animatediff_models" \
+        "https://huggingface.co/guoyww/animatediff/resolve/main/v3_sd15_mm.ckpt"
 
     # CLIP VISION
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors" \
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/clip_vision" \
         "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors"
+    mv "${WORKSPACE}/ComfyUI/models/clip_vision/model.safetensors" "${WORKSPACE}/ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
 
     # IP Adapter
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/ipadapter/ip-adapter-plus_sd15.safetensors" \
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/ipadapter" \
         "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors"
 
     # SAM
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/sams/sam_vit_h_4b8939.pth" \
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/sams" \
         "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
 
     # BBOX
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/ultralytics/bbox/hand_yolov8n.pt" \
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/ultralytics/bbox" \
         "https://huggingface.co/Bingsu/adetailer/resolve/main/hand_yolov8n.pt"
 
     # DINO
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/groundingdino/groundingdino_swint_ogc.pth" \
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/groundingdino" \
         "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth"
 
 }
