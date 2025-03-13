@@ -22,22 +22,34 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    # "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
     "https://github.com/BlenderNeko/ComfyUI_ADV_CLIP_emb"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
-    "https://github.com/kijai/ComfyUI-KJNodes"
+    # "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/talesofai/comfyui-browser"
     "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
+    # mov2mov用
+    "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/storyicon/comfyui_segment_anything"
+    # Batch Prompt Schedule(prompt traveler用)
+    "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
+    # オリジナル
     "https://github.com/osuiso-depot/comfyui-keshigom_custom"
 )
 
 CHECKPOINT_MODELS=(
+    "https://huggingface.co/rimOPS/TESTModels/resolve/main/NDDN3v3_VAE.safetensors"
+    "https://huggingface.co/rimOPS/TESTModels/resolve/main/NELLv2_VAE.safetensors"
     # "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v12.safetensors"
-    "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v17.safetensors"
+    # "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v17.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
     # Silene | Illustrious XL 1.0
@@ -49,21 +61,8 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    # Roxanne
-    "https://civitai.com/api/download/models/1055954"
-    ## hachimiya-meguru
-    "https://civitai.com/api/download/models/1065346"
-    # Areola size slider(goofy)
-    "https://civitai.com/api/download/models/1284363"
-    # Glossy Skin
-    "https://civitai.com/api/download/models/1218639"
-    # cartoony-anime
-    "https://civitai.com/api/download/models/1118776"
-    # 逆バニー
-    "https://civitai.com/api/download/models/995354"
-    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_v1.safetensors"
-    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_vxp_v1.safetensors"
-    "https://huggingface.co/rimOPS/IllustriousBased_Lora_own/resolve/main/gafutncsh_ai_v1.safetensors"
+    # flat
+    "https://huggingface.co/rimOPS/latestLora/resolve/main/Concept/%E7%94%BB%E9%A2%A8%EF%BC%8F194-flat/flat.safetensors"
 )
 
 VAE_MODELS=(
@@ -75,32 +74,16 @@ ESRGAN_MODELS=(
 )
 
 CONTROLNET_MODELS=(
-    # "https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors"
-    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
-    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
-    # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
-    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    # "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
-    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
-    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
-    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_openpose_fp16.safetensors"
+    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15s2_lineart_anime_fp16.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function base_config(){
+    cd "${WORKSPACE}/ComfyUI/models/embeddings"
+    wget -q "https://huggingface.co/rimOPS/embeddings/resolve/main/EasyNegative.pt"
+
     cd "${WORKSPACE}/ComfyUI/"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/config.json"
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/ui-config.json"
@@ -108,10 +91,15 @@ function base_config(){
     # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles_integrated.csv"
 }
 function set_workflow(){
-    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SDXL_workflow.json"
-    target_dir="${WORKSPACE}/ComfyUI/user/default//workflows"
+    target_dir="${WORKSPACE}/ComfyUI/user/default/workflows"
     mkdir -p "$target_dir"
-    wget -q -O "${target_dir}/workflow.json" "$workflow_url"
+
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SDXL_workflow.json"
+    wget -q -O "${target_dir}/SDXL_workflow.json" "$workflow_url"
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/AniDiff.json"
+    wget -q -O "${target_dir}/AniDiff.json" "$workflow_url"
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/AniDiff_ipa.json"
+    wget -q -O "${target_dir}/AniDiff_ipa.json" "$workflow_url"
     if [ $? -ne 0 ]; then
         echo "Failed to download workflow"
     else
@@ -202,6 +190,45 @@ function extensions_config() {
     cd "${WORKSPACE}/ComfyUI/"
 }
 
+function download_model_animediff() {
+    local model_file=$1
+    local model_url=$2
+
+    if [[ ! -e ${model_file} ]]; then
+        mkdir -p "$(dirname "${model_file}")"
+        provisioning_download ${model_url} ${model_file}
+    else
+        printf "%s already exists. Skipping download.\n" "$(basename "${model_file}")"
+    fi
+}
+
+function model_animediff() {
+    # animatediffモデルダウンロード
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/animatediff_models/mm_sd_v15.ckpt" \
+        "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt"
+
+    # CLIP VISION
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors" \
+        "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors"
+
+    # IP Adapter
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/ipadapter/ip-adapter-plus_sd15.safetensors" \
+        "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors"
+
+    # SAM
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/sams/sam_vit_h_4b8939.pth" \
+        "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
+
+    # BBOX
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/ultralytics/bbox/hand_yolov8n.pt" \
+        "https://huggingface.co/Bingsu/adetailer/resolve/main/hand_yolov8n.pt"
+
+    # DINO
+    download_model_animediff "${WORKSPACE}/ComfyUI/models/groundingdino/groundingdino_swint_ogc.pth" \
+        "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth"
+
+}
+
 function provisioning_start() {
     if [[ ! -d /opt/environments/python ]]; then
         export MAMBA_BASE=true
@@ -234,6 +261,7 @@ function provisioning_start() {
         "${ESRGAN_MODELS[@]}"
 
     extensions_config
+    model_animediff
     set_workflow
 
     provisioning_print_end
@@ -370,6 +398,8 @@ function provisioning_download() {
             echo "Downloading without token..."
             wget "$1" --content-disposition --show-progress -q -P "$2"
         fi
+    else
+        wget "$1" --content-disposition --show-progress -q -P "$2"
     fi
 
 }
