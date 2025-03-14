@@ -1,6 +1,6 @@
 {
-  "last_node_id": 22,
-  "last_link_id": 21,
+  "last_node_id": 25,
+  "last_link_id": 28,
   "nodes": [
     {
       "id": 8,
@@ -14,7 +14,7 @@
         46
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -57,13 +57,13 @@
         262
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 1
+          "link": 24
         },
         {
           "name": "positive",
@@ -157,7 +157,7 @@
         270
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -187,13 +187,13 @@
         200
       ],
       "flags": {},
-      "order": 3,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": null
+          "link": 26
         },
         {
           "name": "text",
@@ -235,13 +235,13 @@
         180.6060791015625
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 5
+          "link": 25
         }
       ],
       "outputs": [
@@ -265,100 +265,6 @@
       ]
     },
     {
-      "id": 4,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        497.58660888671875,
-        409.1133728027344
-      ],
-      "size": [
-        315,
-        98
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            5
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            8
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.17",
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "vxpILXL_v12.safetensors"
-      ]
-    },
-    {
-      "id": 21,
-      "type": "ResolutionSelector",
-      "pos": [
-        140.6324920654297,
-        586.198486328125
-      ],
-      "size": [
-        315,
-        126
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            19
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            20
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "aux_id": "osuiso-depot/comfyui-keshigom_custom",
-        "ver": "f77177f49154ec17040a538249686923bff9ab16",
-        "Node name for S&R": "ResolutionSelector"
-      },
-      "widgets_values": [
-        "1152 x 896",
-        "SDXL (None)",
-        true
-      ]
-    },
-    {
       "id": 22,
       "type": "EmptyLatentImage",
       "pos": [
@@ -370,7 +276,7 @@
         106
       ],
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
@@ -379,7 +285,7 @@
           "widget": {
             "name": "width"
           },
-          "link": 19
+          "link": 22
         },
         {
           "name": "height",
@@ -387,7 +293,7 @@
           "widget": {
             "name": "height"
           },
-          "link": 20
+          "link": 23
         }
       ],
       "outputs": [
@@ -410,25 +316,159 @@
         512,
         1
       ]
+    },
+    {
+      "id": 23,
+      "type": "ResolutionSelectorConst",
+      "pos": [
+        128.05615234375,
+        581.577880859375
+      ],
+      "size": [
+        352.79998779296875,
+        150
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "osuiso-depot/comfyui-keshigom_custom",
+        "ver": "f77177f49154ec17040a538249686923bff9ab16",
+        "Node name for S&R": "ResolutionSelectorConst"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "SDXL (None)",
+        false
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        497.58660888671875,
+        409.1133728027344
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            27
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            28
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.17",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "vxpILXL_v12.safetensors"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "LoraLoader",
+      "pos": [
+        871.6194458007812,
+        216.57797241210938
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 27
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            24
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            25,
+            26
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.17",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        null,
+        1,
+        1
+      ]
     }
   ],
   "links": [
-    [
-      1,
-      4,
-      0,
-      3,
-      0,
-      "MODEL"
-    ],
-    [
-      5,
-      4,
-      1,
-      7,
-      0,
-      "CLIP"
-    ],
     [
       6,
       7,
@@ -478,38 +518,78 @@
       "CONDITIONING"
     ],
     [
-      19,
-      21,
-      0,
-      22,
-      0,
-      "INT"
-    ],
-    [
-      20,
-      21,
-      1,
-      22,
-      1,
-      "INT"
-    ],
-    [
       21,
       22,
       0,
       3,
       3,
       "LATENT"
+    ],
+    [
+      22,
+      23,
+      0,
+      22,
+      0,
+      "INT"
+    ],
+    [
+      23,
+      23,
+      1,
+      22,
+      1,
+      "INT"
+    ],
+    [
+      24,
+      24,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      24,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      26,
+      24,
+      1,
+      19,
+      0,
+      "CLIP"
+    ],
+    [
+      27,
+      4,
+      0,
+      24,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      4,
+      1,
+      24,
+      1,
+      "CLIP"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6484180626765743,
+      "scale": 0.7132598689442317,
       "offset": [
-        70.36755645369898,
-        103.01385345614631
+        -288.7791300763379,
+        82.81313914401423
       ]
     },
     "node_versions": {

@@ -63,6 +63,8 @@ UNET_MODELS=(
 LORA_MODELS=(
     # flat
     "https://huggingface.co/rimOPS/latestLora/resolve/main/Concept/%E7%94%BB%E9%A2%A8%EF%BC%8F194-flat/flat.safetensors"
+    # HyperSD
+    "https://civitai.com/api/download/models/571916"
 )
 
 VAE_MODELS=(
