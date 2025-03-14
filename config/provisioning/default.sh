@@ -86,11 +86,6 @@ function base_config(){
     cd "${WORKSPACE}/ComfyUI/models/embeddings"
     wget -q "https://huggingface.co/rimOPS/embeddings/resolve/main/EasyNegative.pt"
 
-    cd "${WORKSPACE}/ComfyUI/"
-    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/config.json"
-    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/ui-config.json"
-    wget -q "https://raw.githubusercontent.com/osuiso-depot/docker-stable-diffusion-webui-forge/refs/heads/main/config/provisioning/styles.csv"
-    # wget -q "https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/provisioning/styles_integrated.csv"
 }
 function set_workflow(){
     target_dir="${WORKSPACE}/ComfyUI/user/default/workflows"
@@ -152,7 +147,6 @@ function extensions_config() {
         echo "Successfully copied wildcards directory"
     fi
 
-
     # Lora-block-weight プリセットを目的のディレクトリにコピーし、上書きする
     # cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.custom.txt"
     cp "lbwpresets.txt" "${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-Inspire-Pack/resources/lbw-preset.txt"
@@ -160,6 +154,12 @@ function extensions_config() {
         echo "Failed to copy and rename lbwpresets.txt"
     else
         echo "Successfully copied and renamed lbwpresets.txt to lbw-preset.custom.txt"
+    fi
+
+    # styles.csv を目的のディレクトリに移動
+    cp "styles.csv" "${WORKSPACE}/ComfyUI"
+    if [ $? -ne 0 ]; then
+        echo "Failed move styles.csv"
     fi
 
     # WAS-NODE config.jsonを更新、指定の項目を上書きする
@@ -209,8 +209,13 @@ function model_animediff() {
         "https://huggingface.co/guoyww/animatediff/resolve/main/v3_sd15_mm.ckpt"
 
     # CLIP VISION
-    download_model_animediff "${WORKSPACE}/ComfyUI/models/clip_vision" \
-        "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors"
+    model_file="${WORKSPACE}ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    if [[ ! -f ${model_file} ]]; then
+        provisioning_download "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" \
+        "${WORKSPACE}/ComfyUI/models/clip_vision"
+    else
+        printf "%s already exists. Skipping download.\n" "$(basename "${model_file}")"
+    fi
     mv "${WORKSPACE}/ComfyUI/models/clip_vision/model.safetensors" "${WORKSPACE}/ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
 
     # IP Adapter
