@@ -91,12 +91,15 @@ function set_workflow(){
     target_dir="${WORKSPACE}/ComfyUI/user/default/workflows"
     mkdir -p "$target_dir"
 
+
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SD15_workflow(remote).json"
+    wget -q -O "${target_dir}/SD15_workflow(remote).json" "$workflow_url"
     workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/SDXL_workflow.json"
     wget -q -O "${target_dir}/SDXL_workflow.json" "$workflow_url"
     workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/AniDiff.json"
     wget -q -O "${target_dir}/AniDiff.json" "$workflow_url"
-    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/AniDiff_ipa.json"
-    wget -q -O "${target_dir}/AniDiff_ipa.json" "$workflow_url"
+    workflow_url="https://raw.githubusercontent.com/osuiso-depot/docker_comfyui/refs/heads/main/config/workflows/AniDiff_ipa(remote).json"
+    wget -q -O "${target_dir}/AniDiff_ipa(remote).json" "$workflow_url"
     if [ $? -ne 0 ]; then
         echo "Failed to download workflow"
     else
