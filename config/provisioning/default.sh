@@ -39,6 +39,8 @@ NODES=(
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     "https://github.com/storyicon/comfyui_segment_anything"
+    # Rembg(強化版？)
+    "https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg"
     # Batch Prompt Schedule(prompt traveler用)
     "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
     # オリジナル
