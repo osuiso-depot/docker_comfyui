@@ -47,7 +47,7 @@ NODES=(
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/rimOPS/TESTModels/resolve/main/NDDN3v3_VAE.safetensors"
-    "https://huggingface.co/rimOPS/TESTModels/resolve/main/NELLv2_VAE.safetensors"
+    # "https://huggingface.co/rimOPS/TESTModels/resolve/main/NELLv2_VAE.safetensors"
     # "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v12.safetensors"
     # "https://huggingface.co/rimOPS/IllustriousBased/resolve/main/vxpILXL_v17.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
